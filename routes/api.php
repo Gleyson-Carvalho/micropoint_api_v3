@@ -23,3 +23,10 @@ Route::get('/', function(){return response()->json('Home', 200);})->middleware('
 Route::post('/register', 'AuthController@register');
 Route::post('/login', 'AuthController@login');
 Route::post('/logout', 'AuthController@logout');
+
+Route::middleware(['auth:api'])->group(function () {
+
+    Route::post('/cidade','CidadeController@inserir');
+
+
+});
